@@ -1,5 +1,5 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef __MONTY_H__
+#define __MONTY_H__
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -31,4 +31,4 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-#endif
+#endif /*__MONTY_H__*/
