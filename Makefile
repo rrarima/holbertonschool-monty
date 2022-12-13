@@ -25,4 +25,4 @@ betty:
 	$(BETTY) $(SRC0)
 
 val:
-	$(VALGRIND) $(VFLAGS)
+	$(VALGRIND) $(VFLAGS) 1.m

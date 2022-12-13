@@ -13,6 +13,7 @@ int main(int argc, char **argv)
         instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
@@ -67,5 +68,4 @@ int main(int argc, char **argv)
 	fclose(file);
 
 	return (EXIT_SUCCESS);
-
 }
