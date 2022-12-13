@@ -8,14 +8,13 @@ int main(int argc, char **argv)
 	ssize_t read;
 	unsigned int line_number = 1;
         stack_t *stack = NULL;
+	int i;
 
         instruction_t instructions[] = {
-		{.opcode = "push", .f = push},
-		{.opcode = "pall", .f = pall},
-		{.opcode = NULL, .f = NULL}
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
 	};
-
-	instruction_t *instruction = &instructions[0];
 
 	if (argc != 2)
 	{
@@ -31,37 +30,42 @@ int main(int argc, char **argv)
 		return EXIT_FAILURE;
 	}
 
-	while ((read = getline(&line, &len, file)) != -1)
+	read = getline(&line, &len, file);
+	while (read != -1)
 	{
 		char *opcode;
 
 		opcode = strtok(line, " \t\n");
+
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;
 			continue;
 		}
-
-		while (instruction->opcode != NULL)
+		i = 0;
+		while (instructions[i].opcode != NULL)
 		{
-			if (strcmp(opcode, instruction->opcode) == 0)
-			break;
+			if (strcmp(opcode, instructions[i].opcode) == 0)
+			{
+				instructions[i].f(&stack, line_number);
+				break;
+			}
+			i = i + 1;
 		}
 
-		if (instruction->opcode == NULL)
+		if (instructions[i].opcode == NULL)
 		{
 			fprintf(stderr, "L%u: unkown instruction %s\n", line_number, opcode);
-			return EXIT_FAILURE;
+			return (EXIT_FAILURE);
 		}
 
-		instruction->f(&stack, line_number);
+		read = getline(&line, &len, file);
 		line_number = line_number + 1;
 
 	}
-
 	free(line);
 	fclose(file);
 
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 
 }

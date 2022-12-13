@@ -4,14 +4,14 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	value = atoi (strtok(NULL, " \t\n"));
-
+	value = atoi(strtok(NULL, " \t\n"));
+	printf("This is value: %d\n",value);
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
