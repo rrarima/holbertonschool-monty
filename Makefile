@@ -1,9 +1,15 @@
 CC=gcc
-CFLAGS=-Wall -Werror -Wextra -pedantic
+CFLAGS=-Wall -Werror -Wextra -pedantic -g
 RM=rm -rf
+VALGRIND=valgrind
+VFLAGS= --leak-check=full --show-leak-kinds=all ./monty bytecodes/00.m
 
 TARGET=monty
-SRC0=	func.c \
+SRC0=	push.c \
+	pall.c
+
+TARGET=monty
+SRC00=	func.c \
 	main.c
 
 TARGET=monty
@@ -33,6 +39,9 @@ all: 0 1 2 3 4 5
 0:
 	$(CC) $(CFLAGS) $(SRC0) -o $(TARGET)
 
+00:
+	$(CC) $(CFLAGS) $(SRC00) -o $(TARGET)
+
 1:
 	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
 
@@ -57,3 +66,6 @@ re: clean all
 
 betty:
 	betty $(SRC0) $(SRC1) $(SRC2) $(SRC3) $(SRC4) $(SRC5)
+
+val:
+	$(VALGRIND) $(VFLAGS)
