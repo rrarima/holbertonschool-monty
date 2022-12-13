@@ -6,11 +6,7 @@ VALGRIND=valgrind
 VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
-SRC0=	push.c \
-	pall.c
-
-TARGET=monty
-SRC00=	func.c \
+SRC0=	func.c \
 	main.c
 
 all: 0
@@ -26,7 +22,6 @@ clean:
 re: clean all
 
 betty:
-
 	$(BETTY) $(SRC0)
 
 val:
