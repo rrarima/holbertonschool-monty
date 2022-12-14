@@ -14,6 +14,8 @@ int main(int argc, char **argv)
         instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pop", pop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
 
@@ -37,7 +39,7 @@ int main(int argc, char **argv)
 		char *opcode;
 
 		opcode = strtok(line, " \t\n");
-
+		printf("These are the tokenised opcodes: %s\n", opcode);
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;
