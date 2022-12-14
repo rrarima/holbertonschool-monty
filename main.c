@@ -15,10 +15,10 @@ int main(int argc, char **argv)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
+		{"nop", nop},
 		{NULL, NULL}
 	};
-	
-	
 
 	if (argc != 2)
 	{
@@ -40,6 +40,7 @@ int main(int argc, char **argv)
 		char *opcode;
 
 		opcode = strtok(line, " \t\n");
+		printf("These are the tokenised opcodes: %s\n", opcode);
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;
