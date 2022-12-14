@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-Wall -Werror -Wextra -pedantic -g
 RM=rm -rf
 VALGRIND=valgrind
-VFLAGS= --leak-check=full --show-leak-kinds=all ./monty bytecodes/00.m
+VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
 SRC0=	push.c \
@@ -24,7 +24,7 @@ SRC2=	pop.c \
 TARGET=monty
 SRC3=	swap.c \
 	push.c \
-	pall.c \
+	pall.c
 
 TARGET=monty
 SRC4=	add.c \
@@ -67,5 +67,32 @@ re: clean all
 betty:
 	betty $(SRC0) $(SRC1) $(SRC2) $(SRC3) $(SRC4) $(SRC5)
 
-val:
-	$(VALGRIND) $(VFLAGS)
+val00:
+	$(VALGRIND) $(VFLAGS) bytecodes/00.m
+
+val2:
+	$(VALGRIND) $(VFLAGS) bytecodes/2.m
+
+val5:
+	$(VALGRIND) $(VFLAGS) bytecodes/5.m
+
+val6:
+	$(VALGRIND) $(VFLAGS) bytecodes/6.m
+
+val7:
+	$(VALGRIND) $(VFLAGS) bytecodes/7.m
+
+val4:
+	$(VALGRIND) $(VFLAGS) bytecodes/4.m
+
+val8:
+	$(VALGRIND) $(VFLAGS) bytecodes/8.m
+
+val0:
+	$(VALGRIND) $(VFLAGS) bytecodes/0.m
+
+valbig:
+	$(VALGRIND) $(VFLAGS) bytecodes/big.m
+
+val1:
+	$(VALGRIND) $(VFLAGS) bytecodes/1.m
