@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 	ssize_t read;
 	unsigned int line_number = 1;
         stack_t *stack = NULL;
+	stack_t *next_stack = NULL;
 	int i;
 
         instruction_t instructions[] = {
@@ -55,13 +56,20 @@ int main(int argc, char **argv)
 
 		if (instructions[i].opcode == NULL)
 		{
-			fprintf(stderr, "L%u: unkown instruction %s\n", line_number, opcode);
+			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
 			return (EXIT_FAILURE);
 		}
 
 		read = getline(&line, &len, file);
 		line_number = line_number + 1;
 
+	}
+	/*free stack func*/
+	while (stack != NULL)
+	{
+		next_stack = stack->next;
+		free(stack);
+		stack = next_stack;
 	}
 	free(line);
 	fclose(file);
