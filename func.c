@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(strtok(NULL, " \t\n"));
-	printf("These are the values to be pushed: %i\n", value);
+/*	printf("These are the values to be pushed: %i\n", value);*/
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
