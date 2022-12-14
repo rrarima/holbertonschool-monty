@@ -75,6 +75,6 @@ valbig:
 
 val1:
 	$(VALGRIND) $(VFLAGS) bytecodes/1.m
-=======
+
 val:
 	$(VALGRIND) $(VFLAGS) 1.m
