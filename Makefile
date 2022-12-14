@@ -5,11 +5,7 @@ VALGRIND=valgrind
 VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
-SRC0=	push.c \
-	pall.c
-
-TARGET=monty
-SRC00=	func.c \
+SRC0=	func.c \
 	main.c
 
 TARGET=monty
@@ -18,8 +14,9 @@ SRC1=	pint.c \
 
 TARGET=monty
 SRC2=	pop.c \
-	push.c \
-	pall.c
+	func.c \
+	main.c \
+	nop.c
 
 TARGET=monty
 SRC3=	swap.c \
@@ -32,15 +29,15 @@ SRC4=	add.c \
 	pall.c
 
 TARGET=monty
-SRC5=	nop.c
+SRC5=	nop.c \
+	main.c \
+	func.c \
+	pop.c
 
 all: 0 1 2 3 4 5
 
 0:
 	$(CC) $(CFLAGS) $(SRC0) -o $(TARGET)
-
-00:
-	$(CC) $(CFLAGS) $(SRC00) -o $(TARGET)
 
 1:
 	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
