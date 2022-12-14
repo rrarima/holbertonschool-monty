@@ -14,8 +14,11 @@ int main(int argc, char **argv)
         instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
+	
+	
 
 	if (argc != 2)
 	{
@@ -37,7 +40,6 @@ int main(int argc, char **argv)
 		char *opcode;
 
 		opcode = strtok(line, " \t\n");
-
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;

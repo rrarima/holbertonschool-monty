@@ -3,7 +3,7 @@ CFLAGS=-Wall -Werror -Wextra -pedantic -g
 RM=rm -rf
 BETTY=betty
 VALGRIND=valgrind
-VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
+VFLAGS= --leak-check=full --show-leak-kinds=all ./monty 
 
 TARGET=monty
 SRC0=	func.c \
