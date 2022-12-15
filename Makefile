@@ -6,58 +6,14 @@ VALGRIND=valgrind
 VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
-SRC0=	func.c \
-	pop.c\
-	nop.c\
+SRC0=	opcodes1.c \
+	opcodes2.c \
 	main.c
-
-TARGET=monty
-SRC1=	pint.c \
-	push.c
-
-TARGET=monty
-SRC2=	pop.c \
-	func.c \
-	main.c \
-	nop.c
-
-TARGET=monty
-SRC3=	swap.c \
-	push.c \
-	pall.c
-
-TARGET=monty
-SRC4=	add.c \
-	func.c \
-	main.c \
-	nop.c \
-	pop.c
-
-TARGET=monty
-SRC5=	nop.c \
-	main.c \
-	func.c \
-	pop.c
 
 all: 0 1 2 3 4 5
 
 0:
 	$(CC) $(CFLAGS) $(SRC0) -o $(TARGET)
-
-1:
-	$(CC) $(CFLAGS) $(SRC1) -o $(TARGET)
-
-2:
-	$(CC) $(CFLAGS) $(SRC2) -o $(TARGET)
-
-3:
-	$(CC) $(CFLAGS) $(SRC3) -o $(TARGET)
-
-4:
-	$(CC) $(CFLAGS) $(SRC4) -o $(TARGET)
-
-5:
-	$(CC) $(CFLAGS) $(SRC5) -o $(TARGET)
 
 clean:
 	$(RM) *~ \#*\# \.\#* \
@@ -67,36 +23,6 @@ re: clean all
 
 betty:
 	$(BETTY) $(SRC0)
-
-val00:
-	$(VALGRIND) $(VFLAGS) bytecodes/00.m
-
-val2:
-	$(VALGRIND) $(VFLAGS) bytecodes/2.m
-
-val5:
-	$(VALGRIND) $(VFLAGS) bytecodes/5.m
-
-val6:
-	$(VALGRIND) $(VFLAGS) bytecodes/6.m
-
-val7:
-	$(VALGRIND) $(VFLAGS) bytecodes/7.m
-
-val4:
-	$(VALGRIND) $(VFLAGS) bytecodes/4.m
-
-val8:
-	$(VALGRIND) $(VFLAGS) bytecodes/8.m
-
-val0:
-	$(VALGRIND) $(VFLAGS) bytecodes/0.m
-
-valbig:
-	$(VALGRIND) $(VFLAGS) bytecodes/big.m
-
-val1:
-	$(VALGRIND) $(VFLAGS) bytecodes/1.m
 
 val:
 	$(VALGRIND) $(VFLAGS) 1.m
