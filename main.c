@@ -7,11 +7,11 @@ int main(int argc, char **argv)
 	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 1;
-        stack_t *stack = NULL;
+	stack_t *stack = NULL;
 	stack_t *next_stack = NULL;
 	int i;
 
-        instruction_t instructions[] = {
+	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
