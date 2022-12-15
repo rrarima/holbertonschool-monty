@@ -28,8 +28,10 @@ SRC3=	swap.c \
 
 TARGET=monty
 SRC4=	add.c \
-	push.c \
-	pall.c
+	func.c \
+	main.c \
+	nop.c \
+	pop.c
 
 TARGET=monty
 SRC5=	nop.c \
