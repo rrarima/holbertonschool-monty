@@ -8,7 +8,9 @@ VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 TARGET=monty
 SRC0=	opcodes1.c \
 	opcodes2.c \
-	main.c
+	main.c \
+	find_opcode.c \
+	free_stack.c
 
 all: 0 1 2 3 4 5
 
@@ -24,5 +26,8 @@ re: clean all
 betty:
 	$(BETTY) $(SRC0)
 
-val:
-	$(VALGRIND) $(VFLAGS) 1.m
+val00:
+	$(VALGRIND) $(VFLAGS) bytecodes/00.m
+
+valdebug:
+	$(VALGRIND) $(VFLAGS) debug.m
