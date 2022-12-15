@@ -11,7 +11,8 @@ SRC0=	opcodes1.c \
 	opcodes2.c \
 	main.c \
 	find_opcode.c \
-	free_stack.c
+	free_stack.c \
+	opcodes3.c
 
 all: 0 1 2 3 4 5
 
