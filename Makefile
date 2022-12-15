@@ -9,6 +9,7 @@ TARGET=monty
 SRC0=	func.c \
 	pop.c\
 	nop.c\
+	add.c\
 	main.c
 
 TARGET=monty
