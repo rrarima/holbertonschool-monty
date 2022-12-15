@@ -12,13 +12,25 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	int value;
 	stack_t *new_node;
+	char *token;
 
 	if (stack == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	value = atoi(strtok(NULL, " \t\n"));
+	token = strtok(NULL, " \t\n");
+	if (token == NULL)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	value = atoi(token);
+	if (strspn(token, "0123456789+-") != strlen(token))
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
