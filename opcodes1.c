@@ -26,7 +26,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(token);
-	if (value == 0 && strcmp(token, "0") != 0)
+	if (strspn(token, "0123456789+-") != strlen(token))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
