@@ -1,5 +1,5 @@
-#ifndef MONTY_H
-#define MONTY_H
+#ifndef __MONTY_H__
+#define __MONTY_H__
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -44,5 +44,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void nop(__attribute__((unused))stack_t **stack, __attribute__((unused))unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void find_opcode(char *opcode, stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *stack);
 
-#endif
+#endif /* __MONTY_H__ */
