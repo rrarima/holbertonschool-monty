@@ -7,7 +7,11 @@ VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
 SRC0=	func.c \
-	main.c
+	main.c \
+	pop.c \
+	nop.c \
+	free_malloc.c \
+	read_file.c 
 
 TARGET=monty
 SRC1=	pint.c \
