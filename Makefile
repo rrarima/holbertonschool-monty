@@ -7,6 +7,8 @@ VFLAGS= --leak-check=full --show-leak-kinds=all ./monty
 
 TARGET=monty
 SRC0=	func.c \
+	pop.c\
+	nop.c\
 	main.c
 
 TARGET=monty

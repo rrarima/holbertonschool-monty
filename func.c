@@ -10,7 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(strtok(NULL, " \t\n"));
-	printf("These are the values to be pushed: %i\n", value);
+	/*printf("These are the values to be pushed: %i\n", value);*/
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
@@ -52,4 +52,19 @@ void pint(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%i\n", (*stack)->n);
+}
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+	int tmp;
+
+	if (current == NULL || current->next == NULL)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	tmp = current->n;
+	current->n = current->next->n;
+	current->next->n = tmp;
 }

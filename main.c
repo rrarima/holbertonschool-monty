@@ -17,6 +17,7 @@ int main(int argc, char **argv)
 		{"pint", pint},
 		{"pop", pop},
 		{"nop", nop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 
@@ -38,7 +39,7 @@ int main(int argc, char **argv)
 		char *opcode;
 
 		opcode = strtok(line, " \t\n");
-		printf("These are the tokenised opcodes: %s\n", opcode);
+		/*printf("These are the tokenised opcodes: %s\n", opcode);*/
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;
