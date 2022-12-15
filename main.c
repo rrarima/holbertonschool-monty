@@ -1,33 +1,28 @@
 #include "monty.h"
 
+/**
+ *main - reads Monty byte codes
+ *@argc: the count of arguments in the command line
+ *
+ *@argv: pointer to pointer of arguments on the command line
+ *
+ *Return: either EXIT_SUCCESS on success or EXIT_FAILURE on failure
+ */
+
 int main(int argc, char **argv)
 {
 	FILE *file;
-	char *line = NULL;
+	char *line = NULL, *opcode;
 	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 1;
 	stack_t *stack = NULL;
-	stack_t *next_stack = NULL;
-	int i;
-
-	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"nop", nop},
-		{"swap", swap},
-		{"add", add},
-		{NULL, NULL}
-	};
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		return (EXIT_FAILURE);
 	}
-
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
@@ -37,42 +32,19 @@ int main(int argc, char **argv)
 	read = getline(&line, &len, file);
 	while (read != -1)
 	{
-		char *opcode;
-
 		opcode = strtok(line, " \t\n");
-		/*printf("These are the tokenised opcodes: %s\n", opcode);*/
 		if (opcode == NULL)
 		{
 			line_number = line_number + 1;
 			read = getline(&line, &len, file);
 			continue;
 		}
-		i = 0;
-		while (instructions[i].opcode != NULL)
-		{
-			if (strcmp(opcode, instructions[i].opcode) == 0)
-			{
-				instructions[i].f(&stack, line_number);
-				break;
-			}
-			i = i + 1;
-		}
-		if (instructions[i].opcode == NULL)
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
-			return (EXIT_FAILURE);
-		}
+		find_opcode(opcode, &stack, line_number);
 		read = getline(&line, &len, file);
 		line_number = line_number + 1;
 	}
-	/*free stack func*/
-	while (stack != NULL)
-	{
-		next_stack = stack->next;
-		free(stack);
-		stack = next_stack;
-	}
 	free(line);
+	free_stack(stack);
 	fclose(file);
 	return (EXIT_SUCCESS);
 }
