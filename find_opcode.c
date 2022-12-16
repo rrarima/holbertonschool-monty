@@ -22,7 +22,7 @@ void find_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
-		{"_div", _div},
+		{"div", _div},
 		{NULL, NULL}
 	};
 
