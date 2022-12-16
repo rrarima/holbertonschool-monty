@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  *sub - subtracts top element from second top element of stack
  *
@@ -6,6 +7,7 @@
  *
  *@line_number: line number of read line
  */
+
 void sub(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
@@ -29,6 +31,7 @@ void sub(stack_t **stack, unsigned int line_number)
  *
  *@line_number: line number of read line
  */
+
 void _div(stack_t **stack, unsigned int line_number)
 {
 	if (stack == NULL || *stack == NULL)
