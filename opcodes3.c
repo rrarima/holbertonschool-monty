@@ -22,8 +22,6 @@ void sub(stack_t **stack, unsigned int line_number)
 	pop(stack, line_number);
 }
 
-
-#include "monty.h"
 /**
  *_div - divides the second top element by top element of stack
  *
