@@ -47,5 +47,6 @@ void add(stack_t **stack, unsigned int line_number);
 void find_opcode(char *opcode, stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void sub(stack_t **stack, unsigned int line_number);
+void _div(stack_t **stack, unsigned int line_number);
 
 #endif /* __MONTY_H__ */
